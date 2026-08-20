@@ -81,7 +81,7 @@ When the server starts with the mod loaded, a configuration file is automaticall
 
 ### Server Setup
 1. Copy the `@YourLastMeal` folder to your DayZ Server root directory.
-2. Copy your mod's `.bikey` file to the server's `keys` folder.
+2. Copy the mod's `.bikey` file to the server's `keys` folder.
 3. Add `-mod=@YourLastMeal` to your server startup command line or batch file.
 4. Launch the server to generate `YourLastMeal/Config.json` inside your server's profile directory.
 5. Customize values as desired and restart the server.
