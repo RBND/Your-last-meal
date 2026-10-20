@@ -69,6 +69,12 @@ When the server starts with the mod loaded, a configuration file is automaticall
 
 ---
 
+## Requirements
+
+- [Community Framework (CF)](https://steamcommunity.com/sharedfiles/filedetails/?id=1559212036)
+
+---
+
 ## Installation & Packing
 
 ### Building the Mod
@@ -80,8 +86,9 @@ When the server starts with the mod loaded, a configuration file is automaticall
 6. Click **Pack**.
 
 ### Server Setup
-1. Copy the `@YourLastMeal` folder to your DayZ Server root directory.
-2. Copy the mod's `.bikey` file to the server's `keys` folder.
-3. Add `-mod=@YourLastMeal` to your server startup command line or batch file.
-4. Launch the server to generate `YourLastMeal/Config.json` inside your server's profile directory.
-5. Customize values as desired and restart the server.
+1. Ensure `@CF` (Community Framework) is installed and enabled on the server and client.
+2. Copy the `@YourLastMeal` folder to your DayZ Server root directory.
+3. Copy the mod's `.bikey` file to the server's `keys` folder.
+4. Add `-mod=@CF;@YourLastMeal` to your server startup command line or batch file.
+5. Launch the server to generate `YourLastMeal/Config.json` inside your server's profile directory.
+6. Customize values as desired and restart the server.

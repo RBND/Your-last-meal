@@ -7,7 +7,8 @@ class CfgPatches
 		requiredVersion = 0.1;
 		requiredAddons[] = {
 			"DZ_Data",
-			"DZ_Scripts"
+			"DZ_Scripts",
+			"JM_CF_Scripts"
 		};
 	};
 };
@@ -28,6 +29,7 @@ class CfgMods
 		version = "1.0";
 		extra = 0;
 		type = "mod";
+		storageVersion = 1;
 
 		dependencies[] = {
 			"Game",

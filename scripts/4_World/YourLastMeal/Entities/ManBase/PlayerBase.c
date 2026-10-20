@@ -118,28 +118,39 @@ modded class PlayerBase
 		m_YLM_HasEverContractedKuru = val;
 	}
 
-	override void OnStoreSave(ParamsWriteContext ctx)
+	override void CF_OnStoreSave(CF_ModStorageMap storage)
 	{
-		super.OnStoreSave(ctx);
+		super.CF_OnStoreSave(storage);
+
+		auto ctx = storage["YourLastMeal"];
+		if (!ctx)
+			return;
 
 		ctx.Write(m_YLM_OnsetRemaining);
 		ctx.Write(m_YLM_SuppressionRemaining);
 		ctx.Write(m_YLM_HasEverContractedKuru);
 	}
 
-	override bool OnStoreLoad(ParamsReadContext ctx, int version)
+	override bool CF_OnStoreLoad(CF_ModStorageMap storage)
 	{
-		if (!super.OnStoreLoad(ctx, version))
+		if (!super.CF_OnStoreLoad(storage))
 			return false;
 
-		if (!ctx.Read(m_YLM_OnsetRemaining))
-			return false;
+		auto ctx = storage["YourLastMeal"];
+		if (!ctx)
+			return true;
 
-		if (!ctx.Read(m_YLM_SuppressionRemaining))
-			return false;
+		if (ctx.GetVersion() >= 1)
+		{
+			if (!ctx.Read(m_YLM_OnsetRemaining))
+				return false;
 
-		if (!ctx.Read(m_YLM_HasEverContractedKuru))
-			return false;
+			if (!ctx.Read(m_YLM_SuppressionRemaining))
+				return false;
+
+			if (!ctx.Read(m_YLM_HasEverContractedKuru))
+				return false;
+		}
 
 		return true;
 	}
